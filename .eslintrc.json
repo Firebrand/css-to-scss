@@ -1,0 +1,10 @@
+{
+    "extends": "airbnb",
+    "env": {
+        "mocha": true,
+        "node": true
+    },
+    "rules": {
+        "no-plusplus": [2, { "allowForLoopAfterthoughts": true }]
+    }
+}

@@ -5,6 +5,7 @@
         "node": true
     },
     "rules": {
-        "no-plusplus": [2, { "allowForLoopAfterthoughts": true }]
+        "no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
+        "no-underscore-dangle": "off"
     }
 }

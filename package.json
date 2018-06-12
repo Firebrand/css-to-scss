@@ -1,11 +1,12 @@
 {
   "name": "node-boilerplate",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "A sample boilerplate app for Node",
   "main": "index.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint ./lib/**/*.js",
-    "start": "nodemon ./lib/index.js",
+    "start": "node ./lib/index.js",
+    "monitor": "nodemon ./lib/index.js",
     "test": "mocha || true",
     "build": "npm run lint && npm run test && npm run start"
   },
@@ -20,9 +21,10 @@
   },
   "homepage": "https://github.com/Firebrand/node-boilerplate#readme",
   "dependencies": {
+    "args": "^4.0.0",
     "async": "^2.6.1",
+    "bluebird": "^3.5.1",
     "chalk": "^2.4.1",
-    "commander": "^2.15.1",
     "lodash": "^4.17.10"
   },
   "devDependencies": {

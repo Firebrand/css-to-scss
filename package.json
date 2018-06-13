@@ -3,18 +3,22 @@
   "version": "0.0.1",
   "description": "A sample boilerplate app for Node",
   "main": "index.js",
+  "bin": {
+    "calculatoor": "./bin/calculatoor.js"
+  },
   "scripts": {
     "lint": "./node_modules/.bin/eslint ./lib/**/*.js",
     "start": "node ./lib/index.js",
     "monitor": "nodemon ./lib/index.js",
-    "test": "mocha || true",
+    "bin": "node ./bin/calculatoor.js",
+    "test": "mocha --recursive || true",
     "build": "npm run lint && npm run test && npm run start"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Firebrand/node-boilerplate.git"
   },
-  "author": "",
+  "author": "Alex Tsirozidis",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Firebrand/node-boilerplate/issues"

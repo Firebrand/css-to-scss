@@ -3,6 +3,7 @@ const Calculator = require('../../lib/modules/calculator');
 
 const testCalc = new Calculator(10);
 
+// Cool
 describe('Calculator', () => {
   it('Addition', () => {
     const result = testCalc.calculateValue('+5').total;

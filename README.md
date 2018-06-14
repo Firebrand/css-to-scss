@@ -1,1 +1,1 @@
-# node-boilerplate
+# sass-tidy

@@ -1,268 +1,233 @@
-$nav-bg: #2b3033;
-$blue: #5fc7ea;
-$red: #e68568;
-$yellow: #e6d068;
-$green: #68e6ac;
-$ease: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-$content-animation: scale(0.7) rotateX(-230deg);
+$fade-custom-ease: cubic-bezier(0.405, 0.115, 0.150, 0.960);
 
-* {
+$ease-quad-inout: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+$ease-quad-out: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+
+$ease-quint-in: cubic-bezier(0.895, 0.030, 0.685, 0.220);
+$ease-quint-out: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+$ease-quint-inout: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+
+// Google Material standard ease
+$ease-matstand-inout: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+a {
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  
+  font-family: Calibri, Tahoma, Arial;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  line-height: 1.3em;
+  color: #de0000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Calibri, Tahoma, Arial;
+}
+
+p {
+  font-family: Avenir, Tahoma, Arial;
+  font-size: 16px;
+  margin: 1.8em 0;
+}
+
+div {
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Montserrat';
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+h1 {
+  margin: 2em 0 1em 0;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+%clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
 }
 
-.nav {
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  width: 100px;
-  backface-visibility: hidden;
-  
-  &__list {
-    display: flex;
-    flex-flow: column wrap;
-    height: 85vh;
-    transform: translate(0, -100%);
-    transition: $ease;
-    
-    &--active {
-      transform: translate(0, 0);
-    }
+$head-height: 70px;
+header {
+  @extend %clearfix;
+  &, .head-wrapper {
+    height: $head-height;
   }
-  
-  &__item {
-    flex: 1;
-    position: relative;
-  }
-  
-  &__link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
+  .head-wrapper {
+    top: -100px;
     left: 0;
-    text-decoration: none;
-    font-size: 24px;
-    background: $nav-bg;
-    transition: $ease;
+    width: 100%;
+    background: rgba(205,205,205, 1);
+    padding: 0 1em;
     
-    &:hover {
-      background: mix(black, $nav-bg, 10);
-    }
+    transition: 0.2s all $ease-matstand-inout;
   }
   
-  @media (max-width: 640px) {
-    width: 70px;
-    
-    &__list {
-      height: 90vh;
+  &.pinned {
+    .head-wrapper {
+      position: fixed;
+      height: 100px;
+      top: 0;
+      background-color: rgba(205,205,205, 0.9);
+      // entry settings
+      transition: 0.2s all $ease-matstand-inout,
+        2s background-color $ease-matstand-inout;
+      
+      ul.meganav {      
+        max-width: 70em;
+      }
+      ul.meganav.L-1>li>a {
+        padding-top: 2.9em;
+        padding-bottom: 2.9em;
+        // padding: 2.9em 2.6em;
+      }
+      .level-2 {
+        top: 100px;
+      }
     }
   }
 }
 
-.burger {
-  height: 15vh;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
-  background: $nav-bg;
+ul[class^="L-"],
+ul[class*=" L-"] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+  >li {
+    cursor: pointer;
+  }
+  >li:hover,
+  >li.open {
+    >a {
+      color: #ab0000;
+    }
+    >[class^="level-"],
+    >[class*=" level-"] {
+      visibility: inherit;
+      opacity: 1;
+      
+      // mouse over settings
+      transition: 0s visibility 0.2s,
+        0.25s opacity $fade-custom-ease 0.4s,
+        0.35s transform $ease-quint-out 0.3s,
+        0.2s top $ease-quint-inout;
+    }
+    >.level-3 {
+      transform: translateY(0px);
+    }
+    &.open {
+      &, >* {
+        // transition-delay: 0s;
+      }
+    }
+  }
+}
+
+/* starting property values to-be transitioned */
+.level-2 {
+  visibility: hidden;
+  
+}
+
+.level-3 {
+  visibility: hidden;
+  // opacity: 0.01;
+  // filter: blur(40px);
+  // transform: translateY(-100%);
+}
+
+.level-2, 
+.level-3 {
+  // mouse leave settings
+  transition: 0s visibility 0.2s,
+    0.4s opacity $fade-custom-ease 0.1s,
+    0.2s transform $ease-quint-out 0.2s,
+    0.2s top $ease-matstand-inout;
+}
+/* END transition properties */
+
+header {
+  ul.meganav {
+    >li {
+      ul.L-2 {
+        width: 200px;
+        background-color: #cdcdcd;
+        border-right: 1px solid #ababab;
+        >li {
+          padding: 2em;
+          &:hover {
+            background: #ffffff;
+          }
+          &:not(:last-child) {
+            border-bottom: 1px solid #ababab;
+          }
+        }
+      }
+
+    }
+
+    &.L-1 {
+      position: relative;
+      >li>a {
+        padding: 1.8em 1.2em;
+        float: left;
+        transition: 0.2s padding $ease-matstand-inout;
+      }
+    }
+
+    .level-2 {
+      position: absolute;
+      top: $head-height;
+      left: 0;
+      width: 100%;
+      border: 1px solid gray;
+      background-color: #ffffff;
+      height: 600px;
+      cursor: default;
+
+      display: flex;
+      overflow: hidden;
+    }
+
+    .level-3 {
+      position: absolute;
+      top: 0px;
+      left: 201px;
+      width: calc(100% - 201px);
+      height: 100%;
+      cursor: default;
+
+      padding: 2em;
+      background-color: #ffffff;
+    }
+
+  }
+}
+
+.main-content {
+  @extend %clearfix;
+}
+
+.container {
+  max-width: 70em;
+  margin: 0 auto;
+  padding: 0 1.5em;
+}
+
+button {
+  font-family: Avenir, Tahoma, Arial;
+  appearance: none;
+  background-color: #343434;
+  border: 1px solid #dedede;
+  outline: none;
+  color: #ffffff;
+  padding: 1em 2em;
   cursor: pointer;
-  transition: $ease;
   
   &:hover {
-    background: mix(black, $nav-bg, 10);
-  }
-  
-  &__patty {
-    position: relative;
-    height: 2px;
-    width: 40px;
-    background: white;
-    
-    &:before {
-      content: "";
-      position: absolute;
-      top: -10px;
-      left: 0;
-      height: 2px;
-      width: 100%;
-      background: white;
-    }
-    
-    &:after {
-      content: "";
-      position: absolute;
-      top: 10px;
-      left: 0;
-      height: 2px;
-      width: 100%;
-      background: white;
-    }
-  }
-  
-  &__patty,
-  &__patty:before,
-  &__patty:after {
-    will-change: transform;
-    transition: $ease;
-  }
-  
-  &--active {
-    .burger__patty {
-      transform: rotate(90deg);
-      &:before {
-        transform: rotate(-45deg) translate(-7px,-7px) scaleX(0.7);
-      }
-      
-      &:after {
-        transform: rotate(45deg) translate(-7px,7px) scaleX(0.7);
-      }
-    }
-  }
-  
-  @media (max-width: 640px) {
-    height: 10vh;
-    
-    &__patty {
-      transform: scale(0.8);
-    }
-    
-    &--active {
-      .burger__patty {
-        transform: scale(0.8) rotate(90deg);
-      }
-    }
-  }
-}
-
-.panel {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  
-  &__wrapper {
-    padding: 7vh 7vw;
-    perspective: 1000px;
-  }
-  
-  &__content {
-    will-change: transform;
-    transform: $content-animation;
-    transform-origin: center 80%;
-    opacity: 0;
-    transition: $ease;
-    
-    &--active {
-      transform: none;
-      opacity: 1;
-    }
-  }
-  
-  &__headline {
-    font-weight: 700;
-    opacity: 0.8;
-    font-size: 48px;
-    margin: 0 0 25px 0;
-  }
-  
-  p {
-    margin: 0 0 25px 0;
-    color: lighten(black, 10);
-    font-size: 24px;
-    max-width: 800px;
-    
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-  
-  &__block {
-    height: 3px;
-    background: rgba(black, 0.2);
-    margin: 0 0 25px 0;
-  }
-  
-  @media (max-width: 640px) {
-    
-    &__headline {
-      font-size: 36px;
-    }
-    
-    &__wrapper {
-      padding: 10vh 10vw;
-    }
-    
-    p {
-      font-size: 16px;
-    }
-  }
-}
-
-.c-blue {
-  color: $blue;
-}
-
-.c-red {
-  color: $red;
-}
-
-.c-green {
-  color: $green;
-}
-
-.c-yellow {
-  color: $yellow;
-}
-
-.b-blue {
-  background: $blue;
-}
-
-.b-red {
-  background: $red;
-}
-
-.b-green {
-  background: $green;
-}
-
-.b-yellow {
-  background: $yellow;
-}
-
-.logo {
-  position: fixed;
-  bottom: 3vh;
-  right: 3vw;
-  z-index: 2;
-  
-  
-  img {
-    width: 65px;
-    transition: $ease;
-    transform: rotate(0);
-  
-    &:hover {
-      transform: rotate(180deg) scale(1.1);
-    }
+    background-color: #ffffff;
+    color: #343434;
   }
 }

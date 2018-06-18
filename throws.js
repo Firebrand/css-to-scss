@@ -1,9 +1,5 @@
-const _ = require('lodash');
+const namer = require('color-namer');
 
 
-const object1 = { classA: { classB: { 'font-weight': 'bold', color: 'red' } } };
 
-const object2 = { classA: { stuff: 'cool', classB: { shit: 'cool', color: 'pink' } } };
-
-
-console.log(_.merge(object1, object2) );
+console.log(namer("#2AFFFF").html[0].name);

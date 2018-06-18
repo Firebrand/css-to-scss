@@ -4,11 +4,11 @@
   "description": "A sample boilerplate app for Node",
   "main": "index.js",
   "bin": {
-    "calculatoor": "./bin/calculatoor.js"
+    "sass-tidy": "./bin/sass-tidy.js"
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint ./lib/**/*.js",
-    "start": "node ./lib/index.js",
+    "start": "node ./bin/sass-tidy.js -o ./test/test.scss",
     "monitor": "nodemon ./lib/index.js",
     "bin": "node ./bin/calculatoor.js",
     "test": "mocha --recursive || true",
@@ -29,7 +29,10 @@
     "async": "^2.6.1",
     "bluebird": "^3.5.1",
     "chalk": "^2.4.1",
-    "lodash": "^4.17.10"
+    "cssbeautify": "^0.3.1",
+    "fela-beautifier": "^5.0.15",
+    "lodash": "^4.17.10",
+    "node-sass": "^4.9.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",

@@ -1,0 +1,268 @@
+$nav-bg: #2b3033;
+$blue: #5fc7ea;
+$red: #e68568;
+$yellow: #e6d068;
+$green: #68e6ac;
+$ease: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$content-animation: scale(0.7) rotateX(-230deg);
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat';
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100px;
+  backface-visibility: hidden;
+  
+  &__list {
+    display: flex;
+    flex-flow: column wrap;
+    height: 85vh;
+    transform: translate(0, -100%);
+    transition: $ease;
+    
+    &--active {
+      transform: translate(0, 0);
+    }
+  }
+  
+  &__item {
+    flex: 1;
+    position: relative;
+  }
+  
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    font-size: 24px;
+    background: $nav-bg;
+    transition: $ease;
+    
+    &:hover {
+      background: mix(black, $nav-bg, 10);
+    }
+  }
+  
+  @media (max-width: 640px) {
+    width: 70px;
+    
+    &__list {
+      height: 90vh;
+    }
+  }
+}
+
+.burger {
+  height: 15vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  background: $nav-bg;
+  cursor: pointer;
+  transition: $ease;
+  
+  &:hover {
+    background: mix(black, $nav-bg, 10);
+  }
+  
+  &__patty {
+    position: relative;
+    height: 2px;
+    width: 40px;
+    background: white;
+    
+    &:before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background: white;
+    }
+    
+    &:after {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background: white;
+    }
+  }
+  
+  &__patty,
+  &__patty:before,
+  &__patty:after {
+    will-change: transform;
+    transition: $ease;
+  }
+  
+  &--active {
+    .burger__patty {
+      transform: rotate(90deg);
+      &:before {
+        transform: rotate(-45deg) translate(-7px,-7px) scaleX(0.7);
+      }
+      
+      &:after {
+        transform: rotate(45deg) translate(-7px,7px) scaleX(0.7);
+      }
+    }
+  }
+  
+  @media (max-width: 640px) {
+    height: 10vh;
+    
+    &__patty {
+      transform: scale(0.8);
+    }
+    
+    &--active {
+      .burger__patty {
+        transform: scale(0.8) rotate(90deg);
+      }
+    }
+  }
+}
+
+.panel {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+  &__wrapper {
+    padding: 7vh 7vw;
+    perspective: 1000px;
+  }
+  
+  &__content {
+    will-change: transform;
+    transform: $content-animation;
+    transform-origin: center 80%;
+    opacity: 0;
+    transition: $ease;
+    
+    &--active {
+      transform: none;
+      opacity: 1;
+    }
+  }
+  
+  &__headline {
+    font-weight: 700;
+    opacity: 0.8;
+    font-size: 48px;
+    margin: 0 0 25px 0;
+  }
+  
+  p {
+    margin: 0 0 25px 0;
+    color: lighten(black, 10);
+    font-size: 24px;
+    max-width: 800px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__block {
+    height: 3px;
+    background: rgba(black, 0.2);
+    margin: 0 0 25px 0;
+  }
+  
+  @media (max-width: 640px) {
+    
+    &__headline {
+      font-size: 36px;
+    }
+    
+    &__wrapper {
+      padding: 10vh 10vw;
+    }
+    
+    p {
+      font-size: 16px;
+    }
+  }
+}
+
+.c-blue {
+  color: $blue;
+}
+
+.c-red {
+  color: $red;
+}
+
+.c-green {
+  color: $green;
+}
+
+.c-yellow {
+  color: $yellow;
+}
+
+.b-blue {
+  background: $blue;
+}
+
+.b-red {
+  background: $red;
+}
+
+.b-green {
+  background: $green;
+}
+
+.b-yellow {
+  background: $yellow;
+}
+
+.logo {
+  position: fixed;
+  bottom: 3vh;
+  right: 3vw;
+  z-index: 2;
+  
+  
+  img {
+    width: 65px;
+    transition: $ease;
+    transform: rotate(0);
+  
+    &:hover {
+      transform: rotate(180deg) scale(1.1);
+    }
+  }
+}

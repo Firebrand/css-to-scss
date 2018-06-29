@@ -11,10 +11,51 @@ $ease-quint-inout: cubic-bezier(0.770, 0.000, 0.175, 1.000);
 $ease-matstand-inout: cubic-bezier(0.4, 0.0, 0.2, 1);
 
 
-ul[class^="L-"],
-ul[class*=" L-"] {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+%clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
 
+$head-height: 70px;
+header {
+  @extend %clearfix;
+  &, .head-wrapper {
+    height: $head-height;
+  }
+  .head-wrapper {
+    top: -100px;
+    left: 0;
+    width: 100%;
+    background: rgba(205,205,205, 1);
+    padding: 0 1em;
+    
+    transition: 0.2s all $ease-matstand-inout;
+  }
+  
+  &.pinned {
+    .head-wrapper {
+      position: fixed;
+      height: 100px;
+      top: 0;
+      background-color: rgba(205,205,205, 0.9);
+      // entry settings
+      transition: 0.2s all $ease-matstand-inout,
+        2s background-color $ease-matstand-inout;
+      
+      ul.meganav {      
+        max-width: 70em;
+      }
+      ul.meganav.L-1>li>a {
+        padding-top: 2.9em;
+        padding-bottom: 2.9em;
+        // padding: 2.9em 2.6em;
+      }
+      .level-2 {
+        top: 100px;
+      }
+    }
+  }
 }

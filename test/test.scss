@@ -1,61 +1,15 @@
-$fade-custom-ease: cubic-bezier(0.405, 0.115, 0.150, 0.960);
 
-$ease-quad-inout: cubic-bezier(0.455, 0.030, 0.515, 0.955);
-$ease-quad-out: cubic-bezier(0.250, 0.460, 0.450, 0.940);
-
-$ease-quint-in: cubic-bezier(0.895, 0.030, 0.685, 0.220);
-$ease-quint-out: cubic-bezier(0.165, 0.840, 0.440, 1.000);
-$ease-quint-inout: cubic-bezier(0.770, 0.000, 0.175, 1.000);
-
-// Google Material standard ease
-$ease-matstand-inout: cubic-bezier(0.4, 0.0, 0.2, 1);
-
-
-%clearfix {
-  &:after {
-    content: '';
-    display: table;
-    clear: both;
-  }
+%coolio{
+  color: red;
+  font-weight: bold;
 }
 
-$head-height: 70px;
-header {
-  @extend %clearfix;
-  &, .head-wrapper {
-    height: $head-height;
-  }
-  .head-wrapper {
-    top: -100px;
-    left: 0;
-    width: 100%;
-    background: rgba(205,205,205, 1);
-    padding: 0 1em;
-    
-    transition: 0.2s all $ease-matstand-inout;
-  }
-  
-  &.pinned {
-    .head-wrapper {
-      position: fixed;
-      height: 100px;
-      top: 0;
-      background-color: rgba(205,205,205, 0.9);
-      // entry settings
-      transition: 0.2s all $ease-matstand-inout,
-        2s background-color $ease-matstand-inout;
-      
-      ul.meganav {      
-        max-width: 70em;
-      }
-      ul.meganav.L-1>li>a {
-        padding-top: 2.9em;
-        padding-bottom: 2.9em;
-        // padding: 2.9em 2.6em;
-      }
-      .level-2 {
-        top: 100px;
-      }
-    }
-  }
+
+.bclass2{
+  @extend %coolio;
+  margin: 10px;
+}
+
+.aclass1{
+  @extend %coolio;
 }

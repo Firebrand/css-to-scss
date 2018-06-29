@@ -33,6 +33,7 @@
     "cssbeautify": "^0.3.1",
     "fela-beautifier": "^5.0.15",
     "lodash": "^4.17.10",
+    "md5": "^2.2.1",
     "node-sass": "^4.9.0",
     "perfectionist": "^2.4.0",
     "prettydiff2": "^2.2.7"

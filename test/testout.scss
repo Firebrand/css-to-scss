@@ -1,10 +1,303 @@
-.bclass2 {
-  color: red;
-  font-weight: bold;
-  margin: 10px;
+$darkgray: #ababab;
+$darkslategrey: #343434;
+$firebrick: #ab0000;
+$gainsboro: #dedede;
+$lightgrey: #cdcdcd;
+$white: #ffffff;
+
+header {
+  &:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+  height: 70px;
+
+  .head-wrapper {
+    background: $lightgrey;
+    height: 70px;
+    left: 0;
+    padding: 0 1em;
+    top: -100px;
+    transition: .2s all cubic-bezier(.4, 0, .2, 1);
+    width: 100%;
+  }
+
+  &.pinned {
+    .head-wrapper {
+      position: fixed;
+      height: 100px;
+      top: 0;
+      background-color: rgba(205, 205, 205, .9);
+      transition: .2s all cubic-bezier(.4, 0, .2, 1),
+                        2s background-color cubic-bezier(.4, 0, .2, 1);
+
+      ul {
+        &.meganav {
+          max-width: 70em;
+
+          &.L-1 {
+            >li {
+              >a {
+                padding-bottom: 2.9em;
+                padding-top: 2.9em;
+              }
+            }
+          }
+        }
+      }
+
+      .level-2 {
+        top: 100px;
+      }
+    }
+  }
+
+  ul {
+    &.meganav {
+      >li {
+        ul {
+          &.L-2 {
+            width: 200px;
+            background-color: $lightgrey;
+            border-right: 1px solid $darkgray;
+
+            >li {
+              padding: 2em;
+
+              &:hover {
+                background: $white;
+              }
+
+              &:not(:last-child) {
+                border-bottom: 1px solid $darkgray;
+              }
+            }
+          }
+        }
+      }
+
+      &.L-1 {
+        position: relative;
+
+        >li {
+          >a {
+            float: left;
+            padding: 1.8em 1.2em;
+            transition: .2s padding cubic-bezier(.4, 0, .2, 1);
+          }
+        }
+      }
+
+      .level-2 {
+        background-color: $white;
+        border: 1px solid gray;
+        cursor: default;
+        display: flex;
+        height: 600px;
+        left: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 70px;
+        width: 100%;
+      }
+
+      .level-3 {
+        background-color: $white;
+        cursor: default;
+        height: 100%;
+        left: 201px;
+        padding: 2em;
+        position: absolute;
+        top: 0;
+        width: calc(100% - 201px);
+      }
+    }
+  }
 }
 
-.aclass1 {
-  color: red;
-  font-weight: bold;
+.main-content {
+  &:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+ul[class^="L-"] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  >li {
+    cursor: pointer;
+
+    &:hover {
+      >a {
+        color: $firebrick;
+      }
+
+      >[class^="level-"] {
+        opacity: 1;
+        transition: 0s visibility .2s,
+                            .25s opacity cubic-bezier(.405, .115, .15, .96) .4s,
+                            .35s transform cubic-bezier(.165, .84, .44, 1) .3s,
+                            .2s top cubic-bezier(.77, 0, .175, 1);
+        visibility: inherit;
+      }
+
+      >[class*=" level-"] {
+        opacity: 1;
+        transition: 0s visibility .2s,
+                            .25s opacity cubic-bezier(.405, .115, .15, .96) .4s,
+                            .35s transform cubic-bezier(.165, .84, .44, 1) .3s,
+                            .2s top cubic-bezier(.77, 0, .175, 1);
+        visibility: inherit;
+      }
+
+      > {
+        &.level-3 {
+          transform: translateY(0);
+        }
+      }
+    }
+
+    &.open {
+      >a {
+        color: $firebrick;
+      }
+
+      >[class^="level-"] {
+        opacity: 1;
+        transition: 0s visibility .2s,
+                            .25s opacity cubic-bezier(.405, .115, .15, .96) .4s,
+                            .35s transform cubic-bezier(.165, .84, .44, 1) .3s,
+                            .2s top cubic-bezier(.77, 0, .175, 1);
+        visibility: inherit;
+      }
+
+      >[class*=" level-"] {
+        opacity: 1;
+        transition: 0s visibility .2s,
+                            .25s opacity cubic-bezier(.405, .115, .15, .96) .4s,
+                            .35s transform cubic-bezier(.165, .84, .44, 1) .3s,
+                            .2s top cubic-bezier(.77, 0, .175, 1);
+        visibility: inherit;
+      }
+
+      > {
+        &.level-3 {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
+
+ul[class*=" L-"] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  >li {
+    cursor: pointer;
+
+    &:hover {
+      >a {
+        color: $firebrick;
+      }
+
+      >[class^="level-"] {
+        opacity: 1;
+        transition: 0s visibility .2s,
+                            .25s opacity cubic-bezier(.405, .115, .15, .96) .4s,
+                            .35s transform cubic-bezier(.165, .84, .44, 1) .3s,
+                            .2s top cubic-bezier(.77, 0, .175, 1);
+        visibility: inherit;
+      }
+
+      >[class*=" level-"] {
+        opacity: 1;
+        transition: 0s visibility .2s,
+                            .25s opacity cubic-bezier(.405, .115, .15, .96) .4s,
+                            .35s transform cubic-bezier(.165, .84, .44, 1) .3s,
+                            .2s top cubic-bezier(.77, 0, .175, 1);
+        visibility: inherit;
+      }
+
+      > {
+        &.level-3 {
+          transform: translateY(0);
+        }
+      }
+    }
+
+    &.open {
+      >a {
+        color: $firebrick;
+      }
+
+      >[class^="level-"] {
+        opacity: 1;
+        transition: 0s visibility .2s,
+                            .25s opacity cubic-bezier(.405, .115, .15, .96) .4s,
+                            .35s transform cubic-bezier(.165, .84, .44, 1) .3s,
+                            .2s top cubic-bezier(.77, 0, .175, 1);
+        visibility: inherit;
+      }
+
+      >[class*=" level-"] {
+        opacity: 1;
+        transition: 0s visibility .2s,
+                            .25s opacity cubic-bezier(.405, .115, .15, .96) .4s,
+                            .35s transform cubic-bezier(.165, .84, .44, 1) .3s,
+                            .2s top cubic-bezier(.77, 0, .175, 1);
+        visibility: inherit;
+      }
+
+      > {
+        &.level-3 {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
+
+.level-2 {
+  transition: 0s visibility .2s,
+                .4s opacity cubic-bezier(.405, .115, .15, .96) .1s,
+                .2s transform cubic-bezier(.165, .84, .44, 1) .2s,
+                .2s top cubic-bezier(.4, 0, .2, 1);
+  visibility: hidden;
+}
+
+.level-3 {
+  transition: 0s visibility .2s,
+                .4s opacity cubic-bezier(.405, .115, .15, .96) .1s,
+                .2s transform cubic-bezier(.165, .84, .44, 1) .2s,
+                .2s top cubic-bezier(.4, 0, .2, 1);
+  visibility: hidden;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 70em;
+  padding: 0 1.5em;
+}
+
+button {
+  font-family: Avenir, Tahoma, Arial;
+  appearance: none;
+  background-color: $darkslategrey;
+  border: 1px solid $gainsboro;
+  outline: none;
+  color: $white;
+  padding: 1em 2em;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $white;
+    color: $darkslategrey;
+  }
 }

@@ -4,7 +4,7 @@ const {
 } = require('./lib/utils/devbug');
 const _ = require('lodash');
 
-const testArr = ['margin:0 auto;max-width:70em; padding:23px', 'body:2', 'margin:0 auto;max-width:70em;'];
+const testArr = ['margin:0 auto;max-width:70em; padding:23px', 'body:2;margin:5px;', 'margin:0 auto;max-width:70em;' , 'margin:5px;color: white;body:2'];
 
 
 const constArrToObj = (arr) => {
@@ -31,7 +31,9 @@ const processObj = (testObj) => {
       dbg('Comparing', testObj[key], colors.RED);
       dbg('Comparing with', testObj[secondKey], colors.GREEN);
       let intersected = _.intersection(testObj[key], testObj[secondKey]);
-      dbg('Intersected', intersected, colors.PURPLE);
+      if (intersected.length > 1) {
+        results.push(intersected);
+      }
     });
   });
 

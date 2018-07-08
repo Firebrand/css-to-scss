@@ -1,4 +1,4 @@
-![css-to-scss logo](https://raw.githubusercontent.com/Firebrand/lidless-eye/master/csstoscss2.png)
+![css-to-scss logo](https://github.com/Firebrand/css-to-scss/blob/master/csstoscss3.png)
 
 # css-to-scss
 

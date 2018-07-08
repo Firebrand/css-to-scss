@@ -1,16 +1,16 @@
 {
-  "name": "node-boilerplate",
-  "version": "0.0.1",
-  "description": "A sample boilerplate app for Node",
-  "main": "index.js",
+  "name": "csstoscss",
+  "version": "0.1.0",
+  "description": "Convert CSS to SCSS or tidy up your SCSS",
+  "main": "./lib/index.js",
   "bin": {
-    "sass-tidy": "./bin/sass-tidy.js"
+    "csstoscss": "./bin/csstoscss.js"
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint ./lib/**/*.js",
-    "start": "node ./bin/sass-tidy.js -o ./test/test.scss",
+    "start": "node ./bin/csstoscss.js -o ./test/test.scss",
     "monitor": "nodemon ./lib/index.js",
-    "bin": "node ./bin/calculatoor.js",
+    "bin": "node ./bin/csstoscss.js",
     "test": "mocha --recursive || true",
     "build": "npm run lint && npm run test && npm run start"
   },
@@ -26,16 +26,11 @@
   "homepage": "https://github.com/Firebrand/node-boilerplate#readme",
   "dependencies": {
     "args": "^4.0.0",
-    "async": "^2.6.1",
-    "bluebird": "^3.5.1",
     "chalk": "^2.4.1",
     "color-namer": "^1.3.0",
-    "cssbeautify": "^0.3.1",
-    "fela-beautifier": "^5.0.15",
     "lodash": "^4.17.10",
     "node-sass": "^4.9.0",
-    "perfectionist": "^2.4.0",
-    "prettydiff2": "^2.2.7"
+    "perfectionist": "^2.4.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",

@@ -1,7 +1,7 @@
 {
   "name": "css-to-scss",
-  "version": "0.1.5",
-  "description": "Convert CSS to SCSS or tidy up your SCSS",
+  "version": "0.1.6",
+  "description": "Convert plain CSS into SCSS, tidy up your existing SCSS, and much more!",
   "main": "./lib/index.js",
   "bin": {
     "css-to-scss": "./bin/css-to-scss.js"
@@ -23,6 +23,13 @@
   "bugs": {
     "url": "https://github.com/Firebrand/css-to-scss/issues"
   },
+  "keywords": [
+    "css",
+    "scss",
+    "preprocessor",
+    "sass",
+    "converter"
+  ],
   "homepage": "https://github.com/Firebrand/css-to-scss#readme",
   "dependencies": {
     "args": "^4.0.0",

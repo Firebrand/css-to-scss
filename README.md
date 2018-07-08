@@ -2,7 +2,7 @@
 
 # CSS-to-SCSS
 
-Convert plain css into scss! Can also be used to tidy up your scss.
+Convert plain CSS into SCSS, tidy up your existing SCSS, and more!
 
 ## Installation
 

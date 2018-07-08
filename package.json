@@ -1,29 +1,29 @@
 {
   "name": "css-to-scss",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Convert CSS to SCSS or tidy up your SCSS",
   "main": "./lib/index.js",
   "bin": {
-    "csstoscss": "./bin/csstoscss.js"
+    "css-to-scss": "./bin/css-to-scss.js"
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint ./lib/**/*.js",
-    "start": "node ./bin/csstoscss.js -o ./test/test.scss",
+    "start": "node ./bin/css-to-scss.js -o ./test/test.scss",
     "monitor": "nodemon ./lib/index.js",
-    "bin": "node ./bin/csstoscss.js",
+    "bin": "node ./bin/css-to-scss.js",
     "test": "mocha --recursive || true",
     "build": "npm run lint && npm run test && npm run start"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Firebrand/csstoscss.git"
+    "url": "git+https://github.com/Firebrand/css-to-scss.git"
   },
   "author": "Alex Tsirozidis",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Firebrand/csstoscss/issues"
+    "url": "https://github.com/Firebrand/css-to-scss/issues"
   },
-  "homepage": "https://github.com/Firebrand/csstoscss#readme",
+  "homepage": "https://github.com/Firebrand/css-to-scss#readme",
   "dependencies": {
     "args": "^4.0.0",
     "chalk": "^2.4.1",

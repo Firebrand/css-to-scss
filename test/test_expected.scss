@@ -1,7 +1,7 @@
-$cornflowerblue: #5f91ee;
-$green: #058005;
-$orangered: #f4511e;
-$white: #ffffff;
+$cornflowerblue_5f91ee: #5f91ee;
+$green_058005: #058005;
+$orangered_f4511e: #f4511e;
+$white_FFFFFF: #ffffff;
 
 * {
   box-sizing: border-box;
@@ -18,7 +18,7 @@ ul {
 
   li {
     a {
-      color: $green;
+      color: $green_058005;
       display: block;
       padding: 3px;
       text-decoration: none;
@@ -27,14 +27,14 @@ ul {
 }
 
 .flex-container {
-  background-color: $white;
+  background-color: $white_FFFFFF;
   display: flex;
   height: 250px;
   width: 400px;
 }
 
 .flex-item {
-  background-color: $cornflowerblue;
+  background-color: $cornflowerblue_5f91ee;
   height: 100px;
   margin: 10px;
   width: 100px;
@@ -43,9 +43,9 @@ ul {
 .button {
   display: inline-block;
   border-radius: 4px;
-  background-color: $orangered;
+  background-color: $orangered_f4511e;
   border: none;
-  color: $white;
+  color: $white_FFFFFF;
   text-align: center;
   font-size: 28px;
   padding: 20px;

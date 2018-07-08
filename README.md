@@ -1,4 +1,4 @@
-![css-to-scss logo](https://github.com/Firebrand/css-to-scss/blob/master/csstoscss5.png)
+![css-to-scss logo](https://github.com/Firebrand/css-to-scss/blob/master/csstoscss6.png)
 
 # CSS-to-SCSS
 

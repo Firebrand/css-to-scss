@@ -1,8 +1,8 @@
-![css-to-scss logo](https://github.com/Firebrand/css-to-scss/blob/master/csstoscss3.png)
+![css-to-scss logo](https://github.com/Firebrand/css-to-scss/blob/master/csstoscss5.png)
 
-# css-to-scss
+# CSS-to-SCSS
 
-Convert plain CSS into SCSS! Can also be used to tidy up SCSS
+Convert plain CSS into SCSS! Can also be used to tidy up your SCSS
 
 ## Installation
 
@@ -23,11 +23,15 @@ npm install --save css-to-scss
 
 ### As an executable:
 
+You can use the command CSS-to-SCSS on a CSS file to convert it to SCSS, or on an existing SCSS file to clean it up
+
 ```
 css-to-scss -o <filename>
 ```
 
 ### As a library:
+
+You can use CSS-to-SCSS as a library to convert CSS or SCSS into a javascript object, clean SCSS string or processed file.
 
 ```
 const cssConverter = require('css-to-scss');
@@ -35,12 +39,20 @@ const cssConverter = require('css-to-scss');
 const cssObject = cssConverter.cssToObject(<string>);
 ```
 
-OR
+**OR**
 
 ```
 const cssConverter = require('css-to-scss');
 
 const scssString = cssConverter.cssToScss(<string>);
+```
+
+**OR**
+
+```
+const cssConverter = require('css-to-scss');
+
+cssConverter.processCSSFile(<filename>);
 ```
 
 

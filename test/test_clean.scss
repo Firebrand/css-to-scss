@@ -128,10 +128,8 @@ ul {
   }
 
   h1 {
-    &: {
-      &:before {
-        content: url(smiley.gif);
-      }
+    &:before {
+      content: url(smiley.gif);
     }
   }
 }

@@ -31,7 +31,7 @@ css-to-scss -o <filename>
 
 ### As a library:
 
-You can use CSS-to-SCSS as a library to convert css or scss into a javascript object, clean scss string or processed file.
+You can use CSS-to-SCSS as a library to convert css into scss, a javascript object, a clean scss string or a processed file.
 
 ```
 const cssConverter = require('css-to-scss');
@@ -76,6 +76,12 @@ console.log(cssObject['.class1']);
 const scssString = cssConverter.cssToScss('.class1 {color: red} .class1 h1 {font-size: 15px}');
 console.log(scssString);
 ```
+
+## Support
+
+If you experience any bugs or issues please post a comment here:  <https://www.npmjs.com/package/node-sass>
+Typically it will get responded to and resolved within 24hrs.
+Make sure to include the error message as well as the css you are inputting into it.
 
 ## License
 

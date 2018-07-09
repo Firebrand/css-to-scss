@@ -79,7 +79,7 @@ console.log(scssString);
 
 ## Support
 
-If you experience any bugs or issues please post a comment here:  <https://www.npmjs.com/package/node-sass>
+If you experience any bugs or issues please post a comment here:  <https://github.com/Firebrand/css-to-scss/issues>
 Typically it will get responded to and resolved within 24hrs.
 Make sure to include the error message as well as the css you are inputting into it.
 

@@ -1,6 +1,6 @@
 {
   "name": "css-to-scss",
-  "version": "0.5",
+  "version": "0.5.0",
   "description": "Convert plain CSS into SCSS, tidy up your existing SCSS, and much more!",
   "main": "./lib/index.js",
   "bin": {

@@ -1,6 +1,6 @@
 {
   "name": "css-to-scss",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Convert plain CSS into SCSS, tidy up your existing SCSS, and much more!",
   "main": "./lib/index.js",
   "bin": {
@@ -48,5 +48,5 @@
     "eslint-plugin-react": "^7.9.1",
     "mocha": "^5.2.0"
   },
-  "debugmode": "false"
+  "debugmode": "true"
 }

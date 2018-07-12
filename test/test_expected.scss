@@ -1,5 +1,8 @@
 $cornflowerblue_5f91ee: #5f91ee;
+$darkgrey_95a5a6: #95a5a6;
 $green_058005: #058005;
+$mediumseagreen_27ae60: #27ae60;
+$mediumseagreen_2ecc71: #2ecc71;
 $orangered_f4511e: #f4511e;
 $white_FFFFFF: #ffffff;
 
@@ -131,5 +134,24 @@ ul {
     &:before {
       content: url(smiley.gif);
     }
+  }
+}
+
+.button-one {
+  padding: 20px 60px;
+  outline: none;
+  background-color: $mediumseagreen_27ae60;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 9px $darkgrey_95a5a6;
+
+  &:hover {
+    background-color: $mediumseagreen_2ecc71;
+  }
+
+  &:active {
+    background-color: $mediumseagreen_2ecc71;
+    box-shadow: 0 5px $darkgrey_95a5a6;
+    transform: translateY(4px);
   }
 }

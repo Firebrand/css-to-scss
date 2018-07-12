@@ -4,8 +4,8 @@ const parser = require('../../lib/components/sassParser');
 
 describe('CSS Parts Processing', () => {
   it('Process Head', () => {
-    const head = parser._processCssHead('.post h1 + p:first-line > body > div.post > div#sidebar > h2[class*=post]:hover');
-    const correctHead = '".post":{"h1":{"+p":{"&:first-line":{">body":{">div":{"&.post":{">div#sidebar":{">h2[class*=post]":{"&:hover"';
+    const head = parser._processCssHead('.post h1 + p:first-line > .class1 > body > div.post > div#sidebar > h2[class*=post]:hover');
+    const correctHead = '".post":{"h1":{"+p":{"&:first-line":{">.class1":{">body":{">div":{"&.post":{">div#sidebar":{">h2[class*=post]":{"&:hover"';
 
     assert.equal(head, correctHead);
   });
